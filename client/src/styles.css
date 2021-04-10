@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+/* VARIABLE SETTING */
+:root {
+    --White: #fff;
+    --Black: rgb(31, 30, 30);
+    --Gray: rgb(66, 66, 66);
+    --Green: rgb(70, 248, 129);
+    --Red: rgb(252, 32, 105);
+
+    --Transition: all ease 350ms;
+    --BorderRadius: 4px;
+    --BorderWhite: 1px solid var(--White);
+    --BorderBlack: 1px solid var(--Black);
+
+    --FontFamilyTitle: 'Poppins', sans-serif;
+    --FontFamilyText: 'Helvetica Neue' 'SF Pro' 'Roboto', sans-serif;
+    --FontSizeTitle: 3rem;
+    --FontSizeMedium: 1.5rem;
+    --FontSizeText: 1.1rem;
+    --FontSizeSmall: .9rem;
+}
+
+
+#root, body, html {
+    height: 100%;
+    font-family: var(--FontFamilyText);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(-30deg, #d4613e, #c52160, #1f8fb8, #1bbb96);
+    background-size: 300% 300%;
+    animation: bgChange 12s ease infinite;
+    padding: 2rem;
+}
+
+@keyframes bgChange {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* STYLE SETTINGS */
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+.center {
+    justify-content: center;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+.title {
+    font-family: var(--FontFamilyTitle);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0.8rem auto;
+}
+
+.title.small {
+    font-size: var(--FontSizeMedium);
+    font-weight: 500;
+    color: var(--White);
+}
+
+
+
+/* NAVBAR SETTINGS */
+.nav {
+    width: 100%;
+    color: var(--White);
+}
+
+.nav__logo {
+    width: 40px;
+    height: 40px;
+    color: var(--White);
+    margin-right: 1rem;
+    border-radius: 50%;
+    animation: lighton 1s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo__img {
+    width: 40px;
+}
+
+@keyframes lighton {
+    0% {
+        background-color: transparent;
+        border: 5px solid transparent;
+    }
+    /* 40% {
+        border: 5px solid transparent;
+    } */
+    50% {
+        background-color: rgba(255,255,255,.5);
+        border: 5px solid rgba(255,255,255,.1);
+    }
+    /* 60% {
+        border: 5px solid transparent;
+    } */
+    100% {
+        background-color: transparent;
+        border: 5px solid transparent;
+    }
+}
