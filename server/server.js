@@ -2,39 +2,40 @@ import express from 'express';
 import mongoose from 'mongoose';
 import logger from 'morgan';
 import createError from 'http-errors';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
 import { config } from './config.js';
 import indexRouter from './routers/indexRouter.js';
 import userRouter from './routers/userRouter.js';
 
+dotenv.config();
 const app = express();
+app.use(cors());
+console.log(process.env.URL);
 
 // CONNECT TO MONGODB
-const URL = config.mongoUrl;
-const connect = mongoose.connect(URL || 'mongodb://localhost:27017/saymoney', {
+const connect = mongoose.connect(process.env.URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: false
+    // useFindAndModify: false
 });
 
 connect.then(() => console.log('Server Now In Service '),
     err => console.log(err)
 );
 
-
-
 // VIEW ENGINE SETUP 
 app.set('view engine', 'jade');
-
 
 // ROUTERS SETUP
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/index', indexRouter);
-app.use('/users', userRouter);
+app.use('/api/index', indexRouter);
+app.use('/api/users', userRouter);
 
 
 

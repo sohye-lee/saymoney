@@ -1,28 +1,42 @@
-import React from 'react';
-import { Grid } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import Details from './components/Details/Details';
 import Header from './components/Header';
+import { useDispatch, useSelector } from 'react-redux';
+import Login from './screens/Login';
+import './styles.sass';
+import './styles.css';
+import Home from './screens/Home';
+import Signup from './screens/Signup';
+
 
 const App = () => {
-    return (
-        <div>
-            <Header />
-            <Grid container spacing={0} justify="center" className="">
-                <Grid item sm={12} md={5} >
-                    <Details />
-                </Grid>
-                <Grid spacing={1} md={5} flexDirection="column" alignItems="flex-end" justify="space-between">
-                    <Grid item sm={12}>
-                        <Details />
-                    </Grid>
-                    <Grid item sm={12}>
-                        <Details />
-                    </Grid>
-                </Grid>
 
-            </Grid>
-        </div>
+    const dispatch = useDispatch();
+    const userLogin = useSelector(state => state.userLogin);
+    const { userInfo } = userLogin;
+
+    useEffect(() => {
+
+    },[])
+
+
+
+    return (
+        <BrowserRouter>
+            <div className="appContainer">
+                {/* BACKGROUND SETTING */}
+                    <div className="stars"></div>
+                    <div className="stars1"></div>
+                    <div className="stars2"></div>
+                    <div className="shooting-stars"></div>
+
+                <Header userInfo={userInfo} />
+                <Route path="/" component={Home} exact />
+                <Route path="/login" component={Login} />
+                <Route path="/signup" component={Signup} />
+            </div>
+        </BrowserRouter>
     )
 };
 

@@ -6,7 +6,7 @@ import { generateToken, isAuth } from '../utils.js';
 const userRouter = express.Router();
 
 userRouter.route('/')
-.get(isAuth, (req, res, next) => {
+.get((req, res, next) => {
     User.find()
     .then(users => {
         if (users) {
@@ -49,6 +49,7 @@ userRouter.route('/login')
 .post((req,res,next) => {
     User.findOne({ email: req.body.email })
     .then(user => {
+        console.log(user);
         if (user) {
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 res.statusCode = 200;
