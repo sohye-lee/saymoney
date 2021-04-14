@@ -7,6 +7,9 @@ export default makeStyles(() => ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        '& *': {
+            color: "var(--White)"
+        }
     },
     formContent: {
         maxWidth: "80%",
@@ -25,6 +28,8 @@ export default makeStyles(() => ({
         marginBottom: "15px",
         fontSize: "1.3rem",
         background: "transparent",
+        display: "flex",
+        justifyContent: "space-between",
         "&::placeholder": {
             color: "rgba(230,230,230,.6)",
         }
@@ -55,5 +60,29 @@ export default makeStyles(() => ({
         color: "var(--White)",
         animation: "blink 2s linear infinite",
         fontSize: "1.3rem",
+    },
+    settingContainer: {
+        height: "80vh",
+        width: "500px",
+        maxWidth: "80%",
+        margin: "0 auto",
+        background: "rgba( 209, 158, 255, 0.3)",
+        boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+        backdropFilter: "blur(1rem)",
+        borderRadius: "var(--BorderRadius)",
+        border: "1px solid rgba(255, 255, 255, 0.18)",
+        transition: "all 350ms ease",
+        '&:hover': {
+            background: "rgba(230,230,230,0.6)",
+            boxShadow: "5px 8px 32px 0 rgba(200,200,200,.4)",
+        },
+        '& *': {
+            color: "var(--White)",
+        }
+    },
+    settingContent: {
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
     }
 }));

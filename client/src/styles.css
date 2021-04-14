@@ -37,7 +37,6 @@ body {
     background: linear-gradient(-30deg, #974127, #830736, #15556d, #1bbb96);
     background-size: 300% 300%;
     animation: bgChange 12s ease infinite;
-    padding: 2rem;
 }
 
 @keyframes bgChange {
@@ -65,7 +64,16 @@ body {
 }
 
 .appContainer {
+    /* height: 100vh; */ 
+}
+
+.sky {
     height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
 }
 /* STYLE SETTINGS */
 .row {
@@ -167,19 +175,12 @@ body {
 }
 
 @keyframes lighton {
-    0% {
-        background-color: transparent;
-        /* border: 5px solid transparent; */
-    }
+    0% { background-color: transparent;}
     50% {
         background-color: rgba(255,255,255,.5);
-        /* border: 5px solid rgba(255,255,255,.1); */
         backdrop-filter: blur(1rem),
     }
-    100% {
-        background-color: transparent;
-        /* border: 5px solid transparent; */
-    }
+    100% { background-color: transparent;}
 }
 
 /* LOADING SETTING */
@@ -207,4 +208,53 @@ body {
 /* ERROR SETTING */
 .error__container {
     color: var(--Red);
+}
+
+/* HOME SCREEN  */
+.home__container {
+    height: 80vh;
+}
+
+.home__grid {
+    padding: 0 !important;
+    width: 90%;
+    max-width: 1248px;
+    height: auto;
+    min-width: 350px;
+    margin: 0 auto;
+    height: 80vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.home__item {
+    flex-basis: 45%;
+}
+
+.home__item.details {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.details__item {
+    flex-basis: 48%;
+}
+@media all and (max-width: 1024px) {
+    .home__grid {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-y: scroll;
+    }
+
+    .home__item {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .home__item.main {
+        margin-bottom: 2rem;
+    }
 }

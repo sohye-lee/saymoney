@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { login, signup } from '../actions/userActions';
+import { signup } from '../actions/userActions';
+import Error from '../components/Error';
+import Loading from '../components/Loading';
 import useStyles from './styles';
 
 const Signup = (props) => {
@@ -56,10 +58,12 @@ const Signup = (props) => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 <button className={classes.formButton} type="submit">sign up</button>
+                {loading && <Loading />}
+                {error && <Error />}
                 <Link to="/login"><span className={classes.link}>login</span></Link>
             </form>
         </div>
     )
-}
+};
 
-export default Signup
+export default Signup;

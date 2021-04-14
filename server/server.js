@@ -8,6 +8,7 @@ import cors from 'cors';
 import { config } from './config.js';
 import indexRouter from './routers/indexRouter.js';
 import userRouter from './routers/userRouter.js';
+import categoryRouter from './routers/categoryRouter.js';
 
 dotenv.config();
 const app = express();
@@ -36,7 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/index', indexRouter);
 app.use('/api/users', userRouter);
-
+app.use('/api/categories', categoryRouter);
 
 
 // CATCH 404 and FORWARD TO ERROR HANDLER
