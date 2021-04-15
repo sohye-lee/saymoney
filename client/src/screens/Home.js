@@ -1,25 +1,37 @@
 import React, { useEffect } from 'react';
-// import { Grid } from '@material-ui/core';
 import Main from '../components/Main/Main';
 import Details from '../components/Details/Details';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { listCategory } from '../actions/categoryActions';
+import { listTransactions } from '../actions/transactionActions';
 
 
 const Home = (props) => {
+    const dispatch = useDispatch();
     const userLogin = useSelector(state => state.userLogin);
     const { userInfo } = userLogin;
+    const categoryList = useSelector(state => state.categoryList);
+    const { categories } = categoryList;
+    const transactionList = useSelector(state => state.transactionList);
+    const { transactions } = transactionList;
+    const transactionAdd = useSelector(state => state.transactionAdd);
+    const { success: successAdd } = transactionAdd;
+    const transactionDelete = useSelector(state => state.transactionDelete);
+    const { success: successDelete } = transactionDelete;
 
     useEffect(() => {
         if (!userInfo) {
             props.history.push('/login');
         }
-    }, [props.history, userInfo])
+        dispatch(listCategory());
+        dispatch(listTransactions());
+    }, [props.history, userInfo, successAdd, successDelete])
     
     return (
         <div className="home__container">
             <div className="home__grid">
                 <div className="home__item main">
-                    <Main />
+                    <Main categories={categories} transactions={transactions} />
                 </div>
                 <div className="home__item details">
                     <div className="details__item">

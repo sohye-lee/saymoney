@@ -3,14 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
     container: {
         height: "100%",
-        background: "rgba( 209, 158, 255, 0.3)",
+        background: "rgba(209, 158, 255, 0.3)",
         boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
         backdropFilter: "blur(1rem)",
         borderRadius: "var(--BorderRadius)",
         border: "1px solid rgba(255, 255, 255, 0.18)",
         transition: "all 350ms ease",
         '&:hover': {
-            background: "rgba(0,0,0,0.4)",
+            background: "rgba(10,10,40,.4)",
             boxShadow: "5px 8px 32px 0 rgba(200,200,200,.4)",
         },
         '& *': {

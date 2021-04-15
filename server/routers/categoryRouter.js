@@ -1,5 +1,6 @@
 import express from 'express';
 import Category from '../models/category.js';
+import { isAuth } from '../utils.js';
 const categoryRouter = express.Router();
 
 
@@ -33,7 +34,7 @@ categoryRouter.route('/')
         }
     })
     .catch(err => next(err));
-})
+});
 
 categoryRouter.route('/:categoryId')
 .get((req, res, next) => {
@@ -45,14 +46,17 @@ categoryRouter.route('/:categoryId')
     })
     .catch(err => next(err));
 })
-.put((req, res, next) => {
+.put(isAuth, (req, res, next) => {
     Category.findById(req.params.categoryId)
     .then(category => {
         category.name = req.body.name;
-        category.save();
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.send(category);
+        category.save()
+        .then(category => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.send(category);
+        })
+        .catch(err => next(err));
     })
     .catch(err => next(err));
 })

@@ -4,8 +4,9 @@ import useStyles from './styles';
 import Form from '../Form';
 import List from '../List';
 
-const Main = () => {
+const Main = ({categories, transactions}) => {
     const classes = useStyles();
+
 
     return (
         <Card className={classes.container}>
@@ -19,12 +20,12 @@ const Main = () => {
                     Try saying : Add Income for $100 in Category Salary For Monday
                 </Typography>
                 <Divider />
-                <Form />
+                <Form categories={categories} />
             </CardContent>
             <CardContent className={classes.bottomContent}>
                 <Grid container spacint={2}>
                     <Grid item xs={12}>
-                        <List />
+                        <List transactions={transactions}/>
                     </Grid>
                 </Grid>
             </CardContent>

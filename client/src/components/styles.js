@@ -3,10 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles(() => ({
     buttonLong: {
         backgroundColor: "var(--Gray)",
-        transition: "var(--Trnasition)",
+        transition: "var(--Transition)",
         marginTop: "1rem",
         '&:hover': {
-            backgroundColor: "var(--Black)",
+            backgroundColor: "rgba(230,230,230,.4)"
+        },
+        '&:hover *': {
+            color: "var(--Black)",
         }
     },
     avatarIncome: {

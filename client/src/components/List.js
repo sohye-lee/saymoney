@@ -10,25 +10,22 @@ import {
     Slide  
 } from '@material-ui/core';
 import { Delete, MoneyOff } from "@material-ui/icons";
-
 import useStyles from './styles';
-import { GetDate } from './GetDate.js';
+import { useDispatch } from 'react-redux';
+import { deleteTransaction } from '../actions/transactionActions';
 
-const List = () => {
+const List = ({transactions}) => {
+    const dispatch = useDispatch();
     const classes = useStyles();
 
-    const transactions = [
-        { id: 1, type: "Income", category: "Salary", amount: 1500, date: GetDate(new Date())},
-        { id: 2, type: "Expense", category: "Grocery", amount: 89.3, date: GetDate(new Date())},
-        { id: 3, type: "Income", category: "Business", amount: 560, date: GetDate(new Date())},
-        { id: 4, type: "Income", category: "Salary", amount: 1500, date: GetDate(new Date())},
-        { id: 5, type: "Expense", category: "Grocery", amount: 89.3, date: GetDate(new Date())},
-        { id: 6, type: "Income", category: "Business", amount: 560, date: GetDate(new Date())},
-    ];
+    const deleteHandler = (category) => {
+        dispatch(deleteTransaction(category._id));
+    };
 
     return (
         <MUIList dense={false} className={classes.mainList}>
-            {transactions.map(transaction => (
+            {transactions && transactions.length > 0 ? 
+            transactions.map(transaction => (
                 <Slide direction="down" in mountOnEnter unmountOnExit key={transaction.id}>
                     <ListItem>
                         <ListItemAvatar>
@@ -38,15 +35,16 @@ const List = () => {
                                     <MoneyOff />
                             </Avatar>
                         </ListItemAvatar>
-                        <ListItemText primary={transaction.category} secondary={`$${transaction.amount} - ${transaction.date}`} />
+                        <ListItemText primary={`${transaction.category.name} - $${transaction.amount}`} secondary={`${transaction.date.slice(0,10)} - ${transaction.description}`} />
                         <ListItemSecondaryAction>
-                            <IconButton edge="end" aria-label="delete" onClick="">
+                            <IconButton edge="end" aria-label="delete" onClick={() => deleteHandler(transaction)}>
                                 <Delete />
                             </IconButton>
                         </ListItemSecondaryAction>
                     </ListItem>
                 </Slide>
-            ))}
+            ))
+            : <h5>No Record found</h5>}
         </MUIList>
     )
 };

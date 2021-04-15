@@ -9,6 +9,7 @@ import { config } from './config.js';
 import indexRouter from './routers/indexRouter.js';
 import userRouter from './routers/userRouter.js';
 import categoryRouter from './routers/categoryRouter.js';
+import transactionRouter from './routers/transactionRouter.js';
 
 dotenv.config();
 const app = express();
@@ -38,6 +39,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/index', indexRouter);
 app.use('/api/users', userRouter);
 app.use('/api/categories', categoryRouter);
+app.use('/api/transactions', transactionRouter);
 
 
 // CATCH 404 and FORWARD TO ERROR HANDLER

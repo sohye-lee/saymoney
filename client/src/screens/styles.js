@@ -73,7 +73,7 @@ export default makeStyles(() => ({
         border: "1px solid rgba(255, 255, 255, 0.18)",
         transition: "all 350ms ease",
         '&:hover': {
-            background: "rgba(230,230,230,0.6)",
+            background: "rgba(10,10,40,0.4)",
             boxShadow: "5px 8px 32px 0 rgba(200,200,200,.4)",
         },
         '& *': {
@@ -87,6 +87,7 @@ export default makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         padding: "2rem",
+        marginBottom: "1rem",
     },
     settingButton: {
         width: "80px",
@@ -108,38 +109,66 @@ export default makeStyles(() => ({
             boxShadow: "3px 3px 7px rgba(255,255,255,.6)",
         }
     },
+    settingList: {
+        width: "100%",
+        listStyle: "none",
+    },
     settingItem: {
+        width: "100%",
+        margin: ".4rem 0",
         fontSize:"var(--FontSizeText)",
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
         listStyle: "none",
         fontFamily: "var(--FontFamilyText)",
         letterSpacing: "1px",
         '& * ': {
-            fontWeight: 100
+            fontWeight: 300
         },
+    },
+    settingInput: {
+        width: "60%",
+        border: "none",
+        outline: "none",
+        borderBottom: "1px solid var(--White)",
+        backgroundColor: "rgba(230,230,230,.3)",
+        color: "var(--White)",
+        fontFamily: "var(--FontFamilyText)",
+        fontSize:"var(--FontSizeText)",
+        letterSpacing: "1px",
+        '&::placeholder': {
+            color: "rgba(230,230,230,.7)",
+        }
     },
     deleteButton: {
         width: "35px",
         height: "35px",
-        borderRadius: "3px",
+        borderRadius: "50%",
         background: "transparent",
         outline: "none",
         border: "none",
         marginLeft: ".5rem",
         '&:hover': {
-            backgroundColor: "var(--Red)"
+            backgroundColor: "var(--Red)",
+            color: "var(--Gray)"
+        },
+        '&:hover *': {
+            color: "var(--Gray)"
         }
     },
     editButton: {
         width: "35px",
         height: "35px",
-        borderRadius: "3px",
+        borderRadius: "50%",
         background: "transparent",
         outline: "none",
         border: "none",
         '&:hover': {
-            backgroundColor: "var(--Green)"
+            backgroundColor: "var(--Green)",
+        },
+        '&:hover *': {
+            color: "var(--Gray)"
         }
     }
 }));
