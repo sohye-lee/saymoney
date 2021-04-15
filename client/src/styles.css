@@ -8,7 +8,7 @@
     --Green: rgb(70, 248, 129);
     --Red: rgb(252, 32, 105);
 
-    --Transition: all ease 350ms;
+    --Transition: all linear 250ms;
     --BorderRadius: 4px;
     --BorderWhite: 1px solid var(--White);
     --BorderBlack: 1px solid var(--Black);
@@ -156,7 +156,6 @@ body {
     width: 0;
     border-bottom: 2px solid var(--White);
     transition: var(--Transition);
-
 }
 
 .nav__hello:hover .nav__hello__underbar {
@@ -165,7 +164,7 @@ body {
 
 .nav__downmenu {
     position: absolute;
-    bottom: -80px;
+    bottom: -110px;
     left: 0;
     display: none;
 }

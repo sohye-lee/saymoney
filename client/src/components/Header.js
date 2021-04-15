@@ -52,6 +52,7 @@ const Header = ({userInfo}) => {
                     <div className="nav__downmenu" style={{display: display}}>
                         <div onClick={() => {logoutHandler(); setDisplay('none')}}>logout</div>
                         <div>profile</div>
+                        <div><Link to="settings" style={{textDecoration:"none", color:"var(--White)"}}>categories</Link></div>
                     </div>
                 </div>
                 

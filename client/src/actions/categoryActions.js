@@ -18,11 +18,12 @@ export const listCategory = () => async(dispatch, getState) => {
     }
 };
 
-export const addCategory = (userId, name) => async (dispatch) => {
-    dispatch({ type: CATEGORY_ADD_REQUEST, payload: { user: userId, name } });
+export const addCategory = (name) => async (dispatch, getState) => {
+    const { userLogin: { userInfo } } = getState();
+    dispatch({ type: CATEGORY_ADD_REQUEST, payload: { user: userInfo._id, name } });
 
     try {
-        const { data } = await Axios.post(BASE_URL_CATEGORY, { user: userId, name }); 
+        const { data } = await Axios.post(BASE_URL_CATEGORY, { user: userInfo._id, name }); 
         dispatch({ type: CATEGORY_ADD_SUCCESS, payload: data })
     } catch (error) {
         const errorMessage = error.response && error.response.data.message ? 

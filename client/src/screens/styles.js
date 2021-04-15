@@ -82,7 +82,64 @@ export default makeStyles(() => ({
     },
     settingContent: {
         width: "100%",
+        height: "100%",
+        overflowY: "scroll",
         display: "flex",
         flexDirection: "column",
+        padding: "2rem",
+    },
+    settingButton: {
+        width: "80px",
+        height: "30px",
+        borderRadius: "3px",
+        transition: "var(--Transition)",
+        backgroundColor: "rgba(230,230,230,.5)",
+        color: "var(--White)",
+        outline: "none",
+        border: "none",
+        borderBottom: "1px solid rgba(230,230,230, .2)",
+        borderRight: "1px solid rgba(230,230,230, .2)",
+        boxShadow: "5px 5px 12px rgba(255,255,255,.3)",
+        fontSize: "1.3rem",
+        margin: "1rem 0 2rem 0",
+        "&:hover": {
+            backgroundColor: "rgba(230,230,230, .7)",
+            color: "var(--Gray)",
+            boxShadow: "3px 3px 7px rgba(255,255,255,.6)",
+        }
+    },
+    settingItem: {
+        fontSize:"var(--FontSizeText)",
+        display: "flex",
+        justifyContent: "space-between",
+        listStyle: "none",
+        fontFamily: "var(--FontFamilyText)",
+        letterSpacing: "1px",
+        '& * ': {
+            fontWeight: 100
+        },
+    },
+    deleteButton: {
+        width: "35px",
+        height: "35px",
+        borderRadius: "3px",
+        background: "transparent",
+        outline: "none",
+        border: "none",
+        marginLeft: ".5rem",
+        '&:hover': {
+            backgroundColor: "var(--Red)"
+        }
+    },
+    editButton: {
+        width: "35px",
+        height: "35px",
+        borderRadius: "3px",
+        background: "transparent",
+        outline: "none",
+        border: "none",
+        '&:hover': {
+            backgroundColor: "var(--Green)"
+        }
     }
 }));

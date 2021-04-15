@@ -8,8 +8,6 @@ export default makeStyles(() => ({
         backdropFilter: "blur(1rem)",
         borderRadius: "var(--BorderRadius)",
         border: "1px solid rgba(255, 255, 255, 0.18)",
-        // marginBottom: "5vh",
-        // margin: "1.5rem",
         borderLeft: "5px solid rgba(0, 255, 100, 0.5)",
         transition: "all 350ms ease",
         overflowY: "scroll",

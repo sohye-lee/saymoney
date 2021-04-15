@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
         border: "1px solid rgba(255, 255, 255, 0.18)",
         transition: "all 350ms ease",
         '&:hover': {
-            background: "rgba(230,230,230,0.6)",
+            background: "rgba(0,0,0,0.4)",
             boxShadow: "5px 8px 32px 0 rgba(200,200,200,.4)",
         },
         '& *': {

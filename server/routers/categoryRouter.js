@@ -14,7 +14,7 @@ categoryRouter.route('/')
     .catch(err => next(err));
 })
 .post((req, res, next) => {
-    Category.findOne({name: req.body.name, user: req.user._id})
+    Category.findOne({name: req.body.name, user: req.body.user})
     .then(category => { 
         if (!category) {
             Category.create({
@@ -75,29 +75,6 @@ categoryRouter.route('/private/:userId')
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.send(mycategories);
-    })
-    .catch(err => next(err));
-})
-.post((req,res,next) => {
-    Category.find()
-    .then(categories => {
-        const mycategories = categories.filter(category => category.user == req.params.userId);
-        if (mycategories.filter(category => category.name === req.body.name).length !== 0) {
-            Category.create({
-                user: req.params.userId,
-                name: req.body.name
-            })
-            .then(category => {
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'application/json');
-                res.send(category);
-            })
-            .catch(err => next(err));
-        } else {
-            res.statusCode = 409;
-            res.setHeader('Content-Type', 'application/json');
-            res.end('This category already exists!');
-        }
     })
     .catch(err => next(err));
 });
