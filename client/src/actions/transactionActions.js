@@ -1,5 +1,10 @@
 import Axios from 'axios';
-import { TRANSACTION_ADD_FAIL, TRANSACTION_ADD_REQUEST, TRANSACTION_ADD_SUCCESS, TRANSACTION_DELETE_FAIL, TRANSACTION_DELETE_REQUEST, TRANSACTION_DELETE_SUCCESS, TRANSACTION_LIST_FAIL, TRANSACTION_LIST_REQUEST, TRANSACTION_LIST_SUCCESS } from './constants';
+import { 
+    TRANSACTION_ADD_FAIL, TRANSACTION_ADD_REQUEST, TRANSACTION_ADD_SUCCESS, 
+    TRANSACTION_DELETE_FAIL, TRANSACTION_DELETE_REQUEST, TRANSACTION_DELETE_SUCCESS, 
+    TRANSACTION_EDIT_FAIL, TRANSACTION_EDIT_REQUEST, TRANSACTION_EDIT_SUCCESS, TRANSACTION_LIST_FAIL, 
+    TRANSACTION_LIST_REQUEST, TRANSACTION_LIST_SUCCESS 
+} from './constants';
 
 const BASE_URL_TRANSACTION = 'http://localhost:5050/api/transactions'
 
@@ -15,10 +20,7 @@ export const listTransactions = () => async(dispatch, getState) => {
         });
         dispatch({ type: TRANSACTION_LIST_SUCCESS, payload: data });
     } catch (error) {
-        const errorMessage = error.message && error.response.data.message ?
-            error.response.data.message :
-            error.message;
-        dispatch({ type: TRANSACTION_LIST_FAIL, payload: errorMessage});
+        dispatch({ type: TRANSACTION_LIST_FAIL, payload: error.message});
     }
 };
 
@@ -37,10 +39,7 @@ export const addTransaction = ({type, category, amount, description, date}) => a
         );
         dispatch({ type: TRANSACTION_ADD_SUCCESS, payload: data });
     } catch (error) {
-        const errorMessage = error.message && error.response.data.message ?
-            error.response.data.message :
-            error.message;
-        dispatch({ type: TRANSACTION_ADD_FAIL, payload: errorMessage });
+        dispatch({ type: TRANSACTION_ADD_FAIL, payload: error.message });
     }
 };
 
@@ -60,5 +59,21 @@ export const deleteTransaction = (transactionId) => async(dispatch, getState) =>
             error.response.data.message :
             error.message;
         dispatch({ type: TRANSACTION_DELETE_FAIL, payload: errorMessage });
+    }
+};
+
+export const editTransaction = (transaction) => async(dispatch, getState) => {
+    const { userLogin: { userInfo } } = getState();
+    dispatch({ type: TRANSACTION_EDIT_REQUEST, payload: transaction });
+
+    try { 
+        const { data } = await Axios.put(`${BASE_URL_TRANSACTION}/${transaction._id}`, transaction, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`
+            }
+        });
+        dispatch({ type: TRANSACTION_EDIT_SUCCESS, payload: data });
+    } catch (error) {
+        dispatch({ type: TRANSACTION_EDIT_FAIL, payload: error.message });
     }
 }

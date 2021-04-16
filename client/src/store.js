@@ -1,7 +1,7 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { categoryAddReducer, categoryDeleteReducer, categoryEditReducer, categoryListReducer } from './reducers/categoryReducers';
-import { transactionAddReducer, transactionDeleteReducer, transactionListReducer } from './reducers/transactionRouter';
+import { transactionAddReducer, transactionDeleteReducer, transactionEditReducer, transactionListReducer } from './reducers/transactionReducers';
 import { userLoginReducer } from './reducers/userReducers';
 
 const initialState = {
@@ -21,6 +21,7 @@ const reducer = combineReducers({
     transactionList: transactionListReducer,
     transactionAdd: transactionAddReducer,
     transactionDelete: transactionDeleteReducer,
+    transactionEdit: transactionEditReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

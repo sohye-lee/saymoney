@@ -26,7 +26,7 @@ const List = ({transactions}) => {
         <MUIList dense={false} className={classes.mainList}>
             {transactions && transactions.length > 0 ? 
             transactions.map(transaction => (
-                <Slide direction="down" in mountOnEnter unmountOnExit key={transaction.id}>
+                <Slide direction="down" in mountOnEnter unmountOnExit key={transaction._id}>
                     <ListItem>
                         <ListItemAvatar>
                             <Avatar 

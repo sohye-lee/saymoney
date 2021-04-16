@@ -33,6 +33,8 @@ export default makeStyles((theme) => ({
     },
     bottomContent: {
         paddingTop: 0,
+        height: "45%",
+        overflowY: "scroll"
     },
     divider: {
         margin: '20px 0',

@@ -21,8 +21,9 @@ export default makeStyles(() => ({
         backgroundColor: "var(--Red)",
     },
     mainList: {
-        height: "85%",
+        height: "95%%",
         overflow: 'auto',
+        overflowY: "scroll"
     },
     
 }));

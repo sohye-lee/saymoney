@@ -50,7 +50,7 @@ const Settings = (props) => {
 
     const renderCategory = (category) => {
         return (
-            <li className={classes.settingList}>
+            <li className={classes.settingList} key={category._id}>
                 <div className={classes.settingItem}>
                     {category.name === "new category" ?
                     <h3 style={{color: "var(--Green)"}}>{category.name}</h3> :
@@ -72,6 +72,8 @@ const Settings = (props) => {
                         </button>
                     </div>
                 </div>
+                {addLoading && <Loading />}
+                {addError && <Error>{addError}</Error>}
                 {deleteLoading && <Loading />}
                 {deleteError && <Error>{deleteError}</Error>}
                 {editLoading && <Loading />}

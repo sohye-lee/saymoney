@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/Header';
 import { useSelector } from 'react-redux';
 import Login from './screens/Login';
-import './styles.sass';
+// import './styles.sass';
 import './styles.css';
 import Home from './screens/Home';
 import Signup from './screens/Signup';

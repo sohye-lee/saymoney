@@ -25,7 +25,7 @@ const Home = (props) => {
         }
         dispatch(listCategory());
         dispatch(listTransactions());
-    }, [props.history, userInfo, successAdd, successDelete])
+    }, [props.history, userInfo, successAdd, successDelete, dispatch])
     
     return (
         <div className="home__container">
