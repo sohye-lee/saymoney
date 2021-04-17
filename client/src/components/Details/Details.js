@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography } from '@material-ui/core';
+import { Card, CardContent } from '@material-ui/core';
 import { Doughnut } from 'react-chartjs-2';
 import useStyles from './styles';
 import useTransactions from '../../useTransactions.js';
@@ -17,7 +17,7 @@ const Details = ({title}) => {
            }
         }
     }
-    console.log(chartData)
+
     return (
         <Card className={title === 'Income' ? classes.income : classes.expense}>
             <div className="title__row">

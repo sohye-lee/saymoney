@@ -42,5 +42,10 @@ export default makeStyles((theme) => ({
     subtitle: {
         lineHeight: '1.5rem',
         marginTop: '20px',
-    }
+    },
+    subtitle2: {
+        lineHeight: '1.5rem',
+        marginTop: '20px',
+        color: "var(--Green)"
+    },
 }));

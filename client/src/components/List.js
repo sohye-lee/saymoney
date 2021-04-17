@@ -35,7 +35,7 @@ const List = ({transactions}) => {
                                     <MoneyOff />
                             </Avatar>
                         </ListItemAvatar>
-                        <ListItemText primary={`${transaction.category.name} - $${transaction.amount}`} secondary={`${transaction.date.slice(0,10)} - ${transaction.description}`} />
+                        <ListItemText primary={`${transaction.category.name} - $${transaction.amount}`} secondary={`${transaction.date.slice(0,10)}  ${transaction.description ? '- "'+transaction.description+'"':""}`} />
                         <ListItemSecondaryAction>
                             <IconButton edge="end" aria-label="delete" onClick={() => deleteHandler(transaction)}>
                                 <Delete />

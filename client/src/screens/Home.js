@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Main from '../components/Main/Main';
 import Details from '../components/Details/Details';
 import { useDispatch, useSelector } from 'react-redux';
+import { PushToTalkButton, PushToTalkButtonContainer, ErrorPanel } from '@speechly/react-ui';
 import { listCategory } from '../actions/categoryActions';
 import { listTransactions } from '../actions/transactionActions';
 
@@ -42,6 +43,10 @@ const Home = (props) => {
                     </div>
                 </div>
             </div> 
+            <PushToTalkButtonContainer>
+                <PushToTalkButton />
+                <ErrorPanel />
+            </PushToTalkButtonContainer>
         </div>
     )
 }

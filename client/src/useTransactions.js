@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listTransactions } from './actions/transactionActions';
 
@@ -8,9 +8,9 @@ const useTransactions = (title) => {
     const { transactions } = transactionList;
 
     const generateColor = () => {
-        const r = Math.random() * 140 + 100;
-        const g = Math.random() * 140 + 100;
-        const b = Math.random() * 140 + 100;
+        const r = Math.random() * 140;
+        const g = Math.random() * 140;
+        const b = Math.random() * 140;
         return `rgb(${r},${g},${b})`;
     };
 
