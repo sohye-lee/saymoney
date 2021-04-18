@@ -63,7 +63,8 @@ app.use((err, req, res, next) => {
 })
 
 // PORT SETTING
-const port = process.env.PORT || 5050;
-app.listen(port, () => {
-    console.log(`Server is ready at http://localhost:${port}`);
+const PORT = process.env.PORT || 5050;
+app.set('port', PORT)
+app.listen(PORT, () => {
+    console.log(`Server is ready at http://localhost:${PORT}`);
 });
