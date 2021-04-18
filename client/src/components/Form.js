@@ -79,7 +79,7 @@ const Form = ({categories}) => {
                 submitHandler();
             }
         }
-    }, [amount, date, findCategory, segment, submitHandler])
+    }, [amount, date, segment])
 
     return (
         <Grid container spacing={2}>

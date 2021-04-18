@@ -26,7 +26,6 @@ const Signup = (props) => {
             alert("Password not matched. Please verify and try again.")
         } 
         dispatch(signup(name, email, password));
-
     };
 
     const seedCategories = () => {
