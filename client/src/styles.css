@@ -19,6 +19,7 @@
     --FontSizeMedium: 1.5rem;
     --FontSizeText: 1.1rem;
     --FontSizeSmall: .9rem;
+    --FontSizeXsmall: .7rem;
 }
 
 
@@ -143,6 +144,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .logo__img {
@@ -152,6 +154,10 @@ body {
 .nav__hello {
     transition: var(--Transition);
     position: relative;
+}
+
+.nav__hello * {
+    cursor: pointer;
 }
 
 .nav__hello__underbar {
@@ -264,4 +270,34 @@ body {
         margin-bottom: 2rem;
     }
 
+    .details__item {
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav__right {
+        display: none;
+    }
+
+    .home__item.details {
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .home__item {
+        max-width: 90%;
+    }
+}
+/* FOOTER  */
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    font-size: var(--FontSizeXsmall);
+    color: var(--White);
+    font-weight: 200;
 }

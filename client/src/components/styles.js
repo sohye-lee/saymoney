@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
     buttonLong: {
         backgroundColor: "var(--Gray)",
         transition: "var(--Transition)",
@@ -25,5 +25,15 @@ export default makeStyles(() => ({
         overflow: 'auto',
         overflowY: "scroll"
     },
-    
+    snackbar: {
+        position: "fixed",
+        right: "1rem",
+        top: "1rem",
+        borderBottom: "3px solid var(--Black)"
+    //     width: '100%',
+    //     '& > * + *': {
+    //       marginTop: theme.spacing(2),
+    //     },
+    //   },
+    }
 }));

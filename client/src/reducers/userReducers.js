@@ -1,5 +1,5 @@
 import { 
-    USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT 
+    USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_SIGNUP_FAIL, USER_SIGNUP_REQUEST, USER_SIGNUP_SUCCESS 
 } from "../actions/constants";
 
 export const userLoginReducer = (state={}, action) => {
@@ -16,3 +16,16 @@ export const userLoginReducer = (state={}, action) => {
             return state;
     }
 };
+
+export const userSignupReducer = (state = {}, action) => {
+    switch(action.type) {
+        case USER_SIGNUP_REQUEST:
+            return { loading: true };
+        case USER_SIGNUP_SUCCESS:
+            return { loading: false, success: true, userInfo: action.payload };
+        case USER_SIGNUP_FAIL:
+            return { loading: false, error: action.payload };
+        default:
+            return state;
+    }
+}

@@ -1,7 +1,7 @@
 /* eslint-disable no-fallthrough */
 import React, { useEffect, useState } from 'react';
 import { 
-    FormControl, TextField, Grid, Button, InputLabel, Select, MenuItem, Input 
+    FormControl, TextField, Grid, Button, InputLabel, Select, MenuItem
 } from '@material-ui/core';
 import { useSpeechContext } from '@speechly/react-client';
 import useStyles from  './styles';
@@ -21,18 +21,18 @@ const Form = ({categories}) => {
     const [category, setCategory] = useState('');
     const [amount, setAmount] = useState();
     const [date, setDate] = useState('');
-    const [description, setDescription] = useState('');
 
     const resetHandler = () => {
         setType('');
         setCategory('');
         setAmount();
         setDate('');
-        setDescription('');
     }
     
     const submitHandler = () => {
-        dispatch(addTransaction({type, category, amount, date, description}));
+        if (Number.isNaN(Number(amount)) || !date.includes('-')) return;
+
+        dispatch(addTransaction({type, category, amount, date}));
         resetHandler();
     }
 
@@ -44,7 +44,6 @@ const Form = ({categories}) => {
             }
         }
     }
-
 
     useEffect(() => {
         if (segment) {
@@ -80,9 +79,7 @@ const Form = ({categories}) => {
                 submitHandler();
             }
         }
-
-
-    }, [segment])
+    }, [amount, date, findCategory, segment, submitHandler])
 
     return (
         <Grid container spacing={2}>
@@ -110,9 +107,6 @@ const Form = ({categories}) => {
             </Grid>
             <Grid item xs={6}>
                 <TextField type="date" label=" " value={date} fullWidth onChange={e => setDate(e.target.value)} />
-            </Grid>
-            <Grid item xs={12}>
-                <Input type="text" placeholder="description" value={description} onChange={e => setDescription(e.target.value)} fullWidth/>
             </Grid>
             <Button className={classes.buttonLong} fullWidth variant="contained" onClick={submitHandler}>Create</Button>
         </Grid>

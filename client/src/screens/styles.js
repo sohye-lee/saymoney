@@ -170,5 +170,14 @@ export default makeStyles(() => ({
         '&:hover *': {
             color: "var(--Gray)"
         }
-    }
+    },
+    snackbar: {
+        position: "fixed",
+        right: "1rem",
+        top: "1rem",
+        width: '100%',
+        // '& > * + *': {
+        //   marginTop: theme.spacing(2),
+        // },
+    },
 }));

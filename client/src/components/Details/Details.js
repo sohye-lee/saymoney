@@ -22,7 +22,7 @@ const Details = ({title}) => {
         <Card className={title === 'Income' ? classes.income : classes.expense}>
             <div className="title__row">
                 <h5 className="title small">{title}</h5>
-                <h3>${roundedTotal}</h3>
+                <h3>$ {roundedTotal}</h3>
             </div>
             <CardContent>
                 <Doughnut data={chartData} options={options} />

@@ -4,10 +4,22 @@ import { useSpeechContext } from '@speechly/react-client';
 import useStyles from './styles';
 import Form from '../Form';
 import List from '../List';
+import Info from '../Info';
 
 const Main = ({categories, transactions}) => {
     const classes = useStyles();
     const { segment } = useSpeechContext();
+    
+    const getBalance = () => {
+        if (transactions) {
+            const incomes = transactions.filter(t => t.type === 'Income');
+            const incomeAmount = incomes.reduce((a,b) => a+b.amount, 0);
+            const expenses = transactions.filter(t => t.type === 'Expense');
+            const expenseAmount = expenses.reduce((a,b) => a+b.amount, 0);
+    
+            return (incomeAmount - expenseAmount).toFixed(2);
+        }
+    }
 
     return (
         <Card className={classes.container}>
@@ -15,10 +27,9 @@ const Main = ({categories, transactions}) => {
                 <h5 className="title small">Balance Tracker</h5>
             </div>
             <CardContent>
-                <Typography variant="h5" align="center">Total Balance</Typography>
+                <Typography variant="h5" align="center">Total Balance : ${getBalance()}</Typography>
                 <Typography className={classes.subtitle}>
-                    Try saying : Add Income for $1000 in Category Salary For Monday
-
+                    <Info />
                 </Typography>
                 <Typography className={classes.subtitle2}>
                     {segment && segment.words.map(w => w.value).join(" ")}

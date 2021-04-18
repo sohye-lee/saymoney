@@ -21,7 +21,6 @@ transactionRouter.route('/')
         type: req.body.type,
         category: req.body.category,
         amount: req.body.amount,
-        description: req.body.description? req.body.description: "",
         date: req.body.date
     })
     .then(transaction => {
@@ -61,7 +60,6 @@ transactionRouter.route('/:transactionId')
         transaction.type = req.body.type ? req.body.type : transaction.type;
         transaction.category = req.body.category ? req.body.category : transaction.category;
         transaction.amount = req.body.amount ? req.body.amount : transaction.amount;
-        transaction.description = req.body.description ? req.body.description : transaction.description;
         transaction.date = req.body.date ? req.body.date : transaction.date;
         transaction.save()
         .then(transaction => {
@@ -82,6 +80,5 @@ transactionRouter.route('/:transactionId')
     })
     .catch(err => next(err));
 })
-
 
 export default transactionRouter;

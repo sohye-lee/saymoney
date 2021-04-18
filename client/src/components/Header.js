@@ -57,7 +57,7 @@ const Header = ({userInfo}) => {
                 </div>
                 
             </div>
-            <div className="row right">
+            <div className="row right nav__right">
                 <p className="nav__date"><span className="margin right">{today}</span><span>{time}</span></p>
             </div>
         </div>
