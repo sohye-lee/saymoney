@@ -41,6 +41,10 @@ app.use('/api/users', userRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/api/transactions', transactionRouter);
 
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '/client/build')));
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/client/build/index.html')))
+
 
 // CATCH 404 and FORWARD TO ERROR HANDLER
 app.use((req, res, next) => {
