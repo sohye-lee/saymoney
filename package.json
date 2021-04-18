@@ -5,8 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server/server.js",
-    "build": "cd client && npm run build"
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
