@@ -12,9 +12,9 @@ export default makeStyles(() => ({
         transition: "all 350ms ease",
         overflowY: "scroll",
         '&:hover': {
-            background: "rgba(10,10,40,.4)",
+            background: "rgba(240,210,240,.4)",
             boxShadow: "5px 8px 32px 0 rgba(200,200,200,.4)",
-            borderLeft: "10px solid rgba(0, 255, 100, 0.5)",
+            borderLeft: "15px solid rgba(0, 255, 100, 0.5)",
         },
         '& *': {
             color: "var(--White)",
@@ -30,9 +30,9 @@ export default makeStyles(() => ({
         borderLeft: "5px solid rgba(255, 0, 0, 0.5)",
         overflowY: "scroll",
         '&:hover': {
-            background: "rgba(10,10,40,.4)",
+            background: "rgba(240,210,240,.4)",
             boxShadow: "5px 8px 32px 0 rgba(200,200,200,.4)",
-            borderLeft: "10px solid rgba(255, 0, 0, 0.5)",
+            borderLeft: "15px solid rgba(255, 0, 0, 0.5)",
         },
         '& *': {
             color: "var(--White)",

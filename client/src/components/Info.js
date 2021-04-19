@@ -30,18 +30,32 @@ const Info = () => {
     ]
     
     const index =  Math.round(Math.random() * 4); 
-    const selectedData = index && data[index];
+    const selectedData =  index && data[index];
 
     return (
-        <div >
-            <div className="row center">Try Saying :</div>
-            <div className="row center">
-                Add {selectedData && selectedData.isIncome}  
-                for {selectedData && selectedData.amount} dollars 
-                in Category {selectedData && selectedData.category} 
-                for {selectedData && selectedData.day}
+
+            <div >
+                {selectedData ?
+                <div>
+                    <div className="row center">Try Saying :</div>
+                    <div className="row center">
+                        Add {selectedData.isIncome}  
+                        for {selectedData.amount} dollars 
+                        in Category {selectedData.category} 
+                        for {selectedData.day}
+                    </div>
+                </div>
+                : 
+                <div>
+                    <div className="row center">Try Saying :</div>
+                    <div className="row center">
+                        Add expense for 100 dollars in category travel for today
+                    </div>
+                </div>
+                }
             </div>
-        </div>
+   
+
     )
 }
 

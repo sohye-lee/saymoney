@@ -11,7 +11,6 @@ import {
 } from '@material-ui/core';
 import { Delete, MoneyOff } from "@material-ui/icons";
 import useStyles from './styles';
-import { withStyles } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
 import { deleteTransaction } from '../actions/transactionActions';
 
@@ -51,4 +50,4 @@ const List = ({transactions}) => {
     )
 };
 
-export default withStyles(useStyles)(List);
+export default List;

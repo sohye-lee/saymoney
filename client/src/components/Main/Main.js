@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, CardContent, Typography, Grid, Divider } from '@material-ui/core';
 import { useSpeechContext } from '@speechly/react-client';
 import useStyles from './styles';

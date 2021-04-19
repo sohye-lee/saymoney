@@ -5,7 +5,6 @@ import {
 } from '@material-ui/core';
 import { useSpeechContext } from '@speechly/react-client';
 import useStyles from  './styles';
-import { withStyles } from '@material-ui/core/styles';
 import { addTransaction } from '../actions/transactionActions';
 import { useDispatch } from 'react-redux';
 
@@ -80,7 +79,7 @@ const Form = ({categories}) => {
                 submitHandler();
             }
         }
-    }, [amount, date, segment])
+    }, [segment])
 
     return (
         <Grid container spacing={2}>
@@ -114,4 +113,4 @@ const Form = ({categories}) => {
     )
 }
 
-export default withStyles(useStyles)(Form);
+export default Form;
