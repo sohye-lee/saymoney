@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { CATEGORY_ADD_FAIL, CATEGORY_ADD_REQUEST, CATEGORY_ADD_SUCCESS, CATEGORY_DELETE_FAIL, CATEGORY_DELETE_REQUEST, CATEGORY_DELETE_SUCCESS, CATEGORY_EDIT_FAIL, CATEGORY_EDIT_REQUEST, CATEGORY_EDIT_SUCCESS, CATEGORY_LIST_FAIL, CATEGORY_LIST_REQUEST, CATEGORY_LIST_SUCCESS } from './constants';
 
 
-const BASE_URL_CATEGORY = "http://localhost:5050/api/categories";
+const BASE_URL_CATEGORY = "/api/categories";
 
 export const listCategory = () => async(dispatch, getState) => {
     const { userLogin: { userInfo } } = getState();

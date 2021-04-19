@@ -6,7 +6,7 @@ import {
     USER_SIGNUP_SUCCESS
 } from './constants';
 
-const BASE_URL_USER = "http://localhost:5050/api/users";
+const BASE_URL_USER = "/api/users";
 
 export const login = (email, password) => async(dispatch) => {
     dispatch({ type: USER_LOGIN_REQUEST, payload: { email, password }});

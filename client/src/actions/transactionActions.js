@@ -6,7 +6,7 @@ import {
     TRANSACTION_LIST_REQUEST, TRANSACTION_LIST_SUCCESS 
 } from './constants';
 
-const BASE_URL_TRANSACTION = 'http://localhost:5050/api/transactions'
+const BASE_URL_TRANSACTION = '/api/transactions'
 
 export const listTransactions = () => async(dispatch, getState) => {
     const { userLogin: { userInfo }} = getState();
