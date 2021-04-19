@@ -4,6 +4,7 @@ import logger from 'morgan';
 import createError from 'http-errors';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import path from 'path';
 
 import { config } from './config.js';
 import indexRouter from './routers/indexRouter.js';
