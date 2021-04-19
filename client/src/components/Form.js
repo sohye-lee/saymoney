@@ -4,13 +4,13 @@ import {
     FormControl, TextField, Grid, Button, InputLabel, Select, MenuItem
 } from '@material-ui/core';
 import { useSpeechContext } from '@speechly/react-client';
-import useStyles from  './styles';
+// import useStyles from  './styles';
 import { addTransaction } from '../actions/transactionActions';
 import { useDispatch } from 'react-redux';
 
 const Form = ({categories}) => {
     const dispatch = useDispatch();
-    const classes = useStyles();
+    // const classes = useStyles();
     const { segment } = useSpeechContext();
 
     const renderCategory = (category) => (
@@ -108,7 +108,7 @@ const Form = ({categories}) => {
             <Grid item xs={6}>
                 <TextField type="date" label=" " value={date} fullWidth onChange={e => setDate(e.target.value)} />
             </Grid>
-            <Button className={classes.buttonLong} fullWidth variant="contained" onClick={submitHandler}>Create</Button>
+            <Button className="buttonLong" fullWidth variant="contained" onClick={submitHandler}>Create</Button>
         </Grid>
     )
 }

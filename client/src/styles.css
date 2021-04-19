@@ -239,7 +239,6 @@ body {
     justify-content: space-around;
 }
 
-
 .home__item  {
     width: 45%;
     margin: 1rem;
@@ -252,6 +251,42 @@ body {
 .details__item {
     height: 48%;
 }
+
+.buttonLong {
+    background-color: var(--Gray);
+    transition: var(--Transition);
+    margin-top: 1rem;
+}
+
+.buttonLong:hover {
+    background-color: rgba(230,230,230,.4);
+}
+
+.buttonLong:hover * {
+    color: var(--Black);
+}
+
+.avatarIncome {
+    color: var(--White);
+    background-color: var(--Green);
+}
+
+.avatarExpense {
+    color: var(--White);
+    background-color: var(--Red);
+}
+
+.mainList {
+    height: 95%;
+    overflow: scroll;
+}
+
+/* .snackbar {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    border-bottom: 2px;
+} */
 
 @media screen and (max-width: 1024px) {
     .home__grid {
