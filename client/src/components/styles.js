@@ -30,5 +30,5 @@ export default makeStyles(() => ({
         right: "1rem",
         top: "1rem",
         borderBottom: "3px solid var(--Black)"
-    }
+    },
 }));

@@ -11,8 +11,10 @@ import {
 } from '@material-ui/core';
 import { Delete, MoneyOff } from "@material-ui/icons";
 import useStyles from './styles';
+import { withStyles } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
 import { deleteTransaction } from '../actions/transactionActions';
+
 
 const List = ({transactions}) => {
     const dispatch = useDispatch();
@@ -31,7 +33,7 @@ const List = ({transactions}) => {
                         <ListItemAvatar>
                             <Avatar 
                                 className={transaction.type === 'Income' 
-                                ? "avatarIncome" : "avatarExpense"}>
+                                ? classes.avatarIncome : classes.avatarExpense}>
                                     <MoneyOff />
                             </Avatar>
                         </ListItemAvatar>
@@ -49,4 +51,4 @@ const List = ({transactions}) => {
     )
 };
 
-export default List;
+export default withStyles(useStyles)(List);
