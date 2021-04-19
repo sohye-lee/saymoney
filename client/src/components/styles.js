@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles((theme) => ({
+export default makeStyles(() => ({
     buttonLong: {
         backgroundColor: "var(--Gray)",
         transition: "var(--Transition)",
@@ -30,10 +30,5 @@ export default makeStyles((theme) => ({
         right: "1rem",
         top: "1rem",
         borderBottom: "3px solid var(--Black)"
-    //     width: '100%',
-    //     '& > * + *': {
-    //       marginTop: theme.spacing(2),
-    //     },
-    //   },
     }
 }));

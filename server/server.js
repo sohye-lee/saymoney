@@ -6,7 +6,6 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
 
-import { config } from './config.js';
 import indexRouter from './routers/indexRouter.js';
 import userRouter from './routers/userRouter.js';
 import categoryRouter from './routers/categoryRouter.js';
