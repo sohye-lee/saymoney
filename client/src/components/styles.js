@@ -13,12 +13,26 @@ export default makeStyles(() => ({
         }
     },
     avatarIncome: {
+        width: '40px',
+        height: '40px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '50%',
         color: 'var(--White)',
         backgroundColor: "var(--Green)",
+        marginRight: '10px',
     },
     avatarExpense: {
+        width: '40px',
+        height: '40px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '50%',
         color: "var(--White)",
         backgroundColor: "var(--Red)",
+        marginRight: '10px',
     },
     mainList: {
         height: "95%%",
@@ -31,4 +45,16 @@ export default makeStyles(() => ({
         top: "1rem",
         borderBottom: "3px solid var(--Black)"
     },
+    inputLabel: {
+        color: 'var(--White)',
+    },
+    input: {
+        '&:placeholder': {
+            color: 'var(--White)',
+        },
+        '& *': {
+            color: 'var(--White)',
+        },
+        borderBottom: '1px solid var(--White)',
+    }
 }));

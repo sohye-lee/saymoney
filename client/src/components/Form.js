@@ -87,8 +87,8 @@ const Form = ({categories}) => {
             </Grid>
             <Grid item xs={6}>
                 <FormControl fullWidth>
-                    <InputLabel>Type</InputLabel>
-                    <Select value={type} onChange={e => setType(e.target.value)}>
+                    <InputLabel class={classes.inputLabel}>Type</InputLabel>
+                    <Select value={type} onChange={e => setType(e.target.value)} class={classes.input}>
                         <MenuItem value="Income">Income</MenuItem>
                         <MenuItem value="Expense">Expense</MenuItem>
                     </Select>
@@ -96,17 +96,17 @@ const Form = ({categories}) => {
             </Grid>
             <Grid item xs={6}>
                 <FormControl fullWidth>
-                    <InputLabel>Category</InputLabel>
-                    <Select value={category} onChange={e=> setCategory(e.target.value)}>
+                    <InputLabel class={classes.inputLabel}>Category</InputLabel>
+                    <Select value={category} onChange={e=> setCategory(e.target.value)} class={classes.input}>
                         {categories && categories.map(cat => renderCategory(cat))}
                     </Select>
                 </FormControl>
             </Grid>
             <Grid item xs={6}>
-                <TextField type="number" label={amount? " " : 'Amount'} value={amount} fullWidth onChange={e => setAmount(e.target.value)}/>
+                <TextField type="number" label={amount? " " : 'Amount'} value={amount} fullWidth onChange={e => setAmount(e.target.value)} class={classes.input}/>
             </Grid>
             <Grid item xs={6}>
-                <TextField type="date" label=" " value={date} fullWidth onChange={e => setDate(e.target.value)} />
+                <TextField type="date" label=" " value={date} fullWidth onChange={e => setDate(e.target.value)} class={classes.input}/>
             </Grid>
             <Button className={classes.buttonLong} fullWidth variant="contained" onClick={submitHandler}>Create</Button>
         </Grid>

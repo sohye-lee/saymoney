@@ -8,6 +8,8 @@ import { listTransactions } from '../actions/transactionActions';
 import SnackbarAlert from '../components/Snackbar';
 import useStyles from './styles';
 import { SpeechState, useSpeechContext } from '@speechly/react-client';
+import { userUpdateReducer } from '../reducers/userReducers';
+import { USER_UPDATE_DONE } from '../actions/constants';
 
 
 const Home = (props) => {
@@ -15,6 +17,8 @@ const Home = (props) => {
     const classes = useStyles();
     const userLogin = useSelector(state => state.userLogin);
     const { userInfo } = userLogin;
+    const userUpdate = useSelector(state => state.userUpdate);
+    const { success: successUpdate } = userUpdate;
     const categoryList = useSelector(state => state.categoryList);
     const { categories } = categoryList;
     const transactionList = useSelector(state => state.transactionList);
@@ -42,6 +46,10 @@ const Home = (props) => {
         if(speechState === SpeechState.Recording) {
             executeScroll();
         }
+        if(successUpdate) {
+            dispatch({ type: USER_UPDATE_DONE });
+        }
+
     }, [props.history, userInfo, successAdd, successDelete, dispatch])
     
     return (

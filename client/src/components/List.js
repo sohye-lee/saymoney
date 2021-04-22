@@ -29,13 +29,10 @@ const List = ({transactions}) => {
             transactions.map(transaction => (
                 <Slide direction="down" in mountOnEnter unmountOnExit key={transaction._id}>
                     <ListItem>
-                        <ListItemAvatar>
-                            <Avatar 
-                                className={transaction.type === 'Income' 
+                        <div className={transaction.type === 'Income' 
                                 ? classes.avatarIncome : classes.avatarExpense}>
-                                    <MoneyOff />
-                            </Avatar>
-                        </ListItemAvatar>
+                            <h2>$</h2>
+                        </div>
                         <ListItemText primary={`${transaction.category.name} - $${transaction.amount}`} secondary={`${transaction.date.slice(0,10)}  ${transaction.description ? '- "'+transaction.description+'"':""}`} />
                         <ListItemSecondaryAction>
                             <IconButton edge="end" aria-label="delete" onClick={() => deleteHandler(transaction)}>

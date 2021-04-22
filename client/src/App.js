@@ -9,6 +9,7 @@ import Signup from './screens/Signup';
 import Settings from './screens/Settings';
 import Footer from './components/Footer';
 import './styles.css';
+import Profile from './screens/Profile';
 
 const App = () => {
     const userLogin = useSelector(state => state.userLogin);
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
                 <Route path="/settings" component={Settings} />
+                <Route path="/profile" component={Profile} />
                 <Footer />
             </div>
         </BrowserRouter>

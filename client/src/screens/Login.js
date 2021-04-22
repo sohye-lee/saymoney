@@ -35,7 +35,7 @@ const Login = (props) => {
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <input 
-                    type="text" 
+                    type="password" 
                     className={classes.formInput} 
                     placeholder="password"
                     onChange={(e) => setPassword(e.target.value)}

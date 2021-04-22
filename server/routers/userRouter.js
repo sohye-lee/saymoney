@@ -90,6 +90,10 @@ userRouter.route('/:userId')
             if (req.body.password) {
                 user.password = bcrypt.hashSync(req.body.password, 8);
             } 
+        } else {
+            res.status = 404;
+            res.setHeader('Content-Type', 'application/json');
+            res.send("User Not Found. Please Signup.");
         };
         user.save()
         .then(user => {
