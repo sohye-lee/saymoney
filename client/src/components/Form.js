@@ -103,7 +103,7 @@ const Form = ({categories}) => {
                 </FormControl>
             </Grid>
             <Grid item xs={6}>
-                <TextField type="number" label={amount? " " : 'Amount'} value={amount} fullWidth onChange={e => setAmount(e.target.value)} class={classes.input}/>
+                <TextField type="number" label={amount? " " : 'Amount'} value={amount} fullWidth onChange={e => setAmount(e.target.value)} style={{borderBottom:'1px solid var(--White)'}}/>
             </Grid>
             <Grid item xs={6}>
                 <TextField type="date" label=" " value={date} fullWidth onChange={e => setDate(e.target.value)} class={classes.input}/>

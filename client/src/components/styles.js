@@ -52,9 +52,6 @@ export default makeStyles(() => ({
         '&:placeholder': {
             color: 'var(--White)',
         },
-        '& *': {
-            color: 'var(--White)',
-        },
         borderBottom: '1px solid var(--White)',
     }
 }));
